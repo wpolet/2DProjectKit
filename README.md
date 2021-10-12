@@ -1,5 +1,11 @@
 # 2D Project sand box
 
+Collaborators:
+
+-Mathyvarnan Mithirsan: https://mathyvarnan-mithirsan.net/
+
+-Polet William: https://williampolet.pir3.net/portfolio
+
 
 Base starter kit by: Thomas Brush
 
