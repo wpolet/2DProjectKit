@@ -50,6 +50,7 @@ public class NewPlayer : PhysicsObject
     public float jumpPower = 17;
     private bool jumping;
     private Vector3 origLocalScale;
+    private bool bIsFacingRight = true;
     [System.NonSerialized] public bool pounded;
     [System.NonSerialized] public bool pounding;
     [System.NonSerialized] public bool shooting = false;
@@ -122,14 +123,18 @@ public class NewPlayer : PhysicsObject
                 Jump(1f);
             }
 
-            //Flip the graphic's localScale
-            if (move.x > 0.01f)
+            //Flip the player
+            if (move.x > 0.01f && !bIsFacingRight)
             {
-               graphic.transform.localScale = new Vector3(origLocalScale.x, transform.localScale.y, transform.localScale.z);
+                transform.Rotate(0, 180, 0);
+                bIsFacingRight = true;
+                //graphic.transform.localScale = new Vector3(origLocalScale.x, transform.localScale.y, transform.localScale.z);
             }
-            else if (move.x < -0.01f)
+            else if (move.x < -0.01f && bIsFacingRight)
             {
-               graphic.transform.localScale = new Vector3(-origLocalScale.x, transform.localScale.y, transform.localScale.z);
+                transform.Rotate(0, -180, 0);
+                bIsFacingRight = false;
+                //graphic.transform.localScale = new Vector3(-origLocalScale.x, transform.localScale.y, transform.localScale.z);
             }
 
             //Punch
